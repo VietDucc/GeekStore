@@ -15,7 +15,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy file jar từ stage build sang
-COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/hello-spring-boot-0.0.1-SNAPSHOT.jar app.jar
 
 # Mở cổng ứng dụng
 EXPOSE 8081
