@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   geekupstore-backend:
-    image: vietducc/geekstore-backend:latest
+    image: vietduc39779/geekstore-backend:latest
     container_name: geekupstore-backend
     ports:
       - "8081:8081"
