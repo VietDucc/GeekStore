@@ -1,4 +1,4 @@
-name: Deploy GeekUpStore Backend
+name: Deploy GeekStore Backend
 
 on:
   push:
@@ -21,11 +21,11 @@ jobs:
 
       - name: 🏗️ Build Docker Image
         run: |
-          docker build --no-cache -t ${{ secrets.DOCKER_USERNAME }}/geekupstore-backend:latest .
+          docker build --no-cache -t ${{ secrets.DOCKER_USERNAME }}/geekstore-backend:latest .
 
       - name: 📤 Push Docker Image to Docker Hub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/geekupstore-backend:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/geekstore-backend:latest
 
       - name: 🚀 Deploy to Server via SSH
         uses: appleboy/ssh-action@master
@@ -36,14 +36,14 @@ jobs:
           port: 8022
           script: |
             cd ~
-            if [ ! -d "GeekUpStore" ]; then
+            if [ ! -d "GeekStore" ]; then
               git clone https://github.com/VietDucc/GeekStore.git
             else
-              cd GeekUpStore
+              cd GeekStore
               git pull origin main
             fi
 
-            cd ~/GeekUpStore
+            cd ~/GeekStore
             docker-compose down
             docker-compose pull
             docker-compose up -d
