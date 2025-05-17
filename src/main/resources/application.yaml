@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://ep-fancy-lake-a14d6h7y-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
+    username: "neondb_owner"
+    password: "npg_EmsI0Tpc1Jiv"
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ninjashen2003@gmail.com
+    password: oews pkpw gksc wssi
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+server:
+  servlet:
+    session:
+      cookie:
+        same-site: Lax
